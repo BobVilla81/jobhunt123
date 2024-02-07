@@ -48,6 +48,22 @@
         .section-subheading {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             /* Adjust the values for the desired shadow effect */
+            /* Keep your masthead styles as they are if you're satisfied with the shadow */
+.masthead-heading, .masthead-subheading {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Apply text shadow specifically to Portfolio section headings and subheadings */
+#portfolio .section-heading, #portfolio .section-subheading {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Optional: If you want to ensure no text shadow is applied to other section headings and subheadings, 
+you can override them specifically. For example, if you have another section with an ID of #otherSection */
+#otherSection .section-heading, #otherSection .section-subheading {
+    text-shadow: none; /* This removes the text shadow */
+}
+
         }
     </style>
 </head>
@@ -88,7 +104,7 @@
     <section class="page-section" id="services">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Need a change</h2>
+                <h2 class=" text-uppercase">Need a change</h2>
                 <h3 class="section-subheading text-muted">Are you frustrated with your current career? </h3>
             </div>
             <div class="row text-center">
