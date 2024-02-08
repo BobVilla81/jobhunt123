@@ -11247,8 +11247,8 @@ header.masthead .masthead-heading {
   height: 2.75rem;
 }
 
-section#about .section-subheading {
-  text-shadow: none;
+#about .section-subheading {
+    text-shadow: none;
 }
 section#contact {
   background-color: #212529;
