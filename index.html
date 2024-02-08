@@ -14,7 +14,7 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -59,22 +59,27 @@
                 text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
             }
 
-            /* Apply text shadow specifically to Portfolio section headings and subheadings */
-            #portfolio .section-heading,
+            * Apply text shadow specifically to Portfolio section headings and subheadings */ #portfolio .section-heading,
             #portfolio .section-subheading {
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
 
-            /* Optional: If you want to ensure no text shadow is applied to other section headings and subheadings, 
-you can override them specifically. For example, if you have another section with an ID of #otherSection */
-            #otherSection .section-heading,
-            #otherSection .section-subheading {
+            .section-subheading {
                 text-shadow: none;
-                /* This removes the text shadow */
+
             }
 
+            .portfolio-item img {
+                width: 100%;
+                /* Adjust the width as needed or use a specific pixel value */
+                height: 200px;
+                /* Adjust the height as needed */
+                object-fit: cover;
+                /* This makes the image cover the area, cropping it if necessary */
+            }
+
+
         }
-        
     </style>
 </head>
 
@@ -105,7 +110,7 @@ you can override them specifically. For example, if you have another section wit
     <header class="masthead">
         <div class="container">
             <div class="masthead-heading text-uppercase">Find your perfect job </div>
-            <div class="masthead-subheading">Where Your Passions Meet Your Profession</div>
+            <div class="masthead-subheading text">Where Your Passions Meet Your Profession</div>
             <br>
             <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
         </div>
@@ -115,7 +120,8 @@ you can override them specifically. For example, if you have another section wit
         <div class="container">
             <div class="text-center">
                 <h2 class=" text-uppercase">Need a change</h2>
-                <h3 class="section-subheading text-muted">Are you frustrated with your current career? </h3>
+                <h5 class="-text-muted">Are you frustrated with your current career? </h5>
+                <br><br>
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
@@ -163,7 +169,7 @@ you can override them specifically. For example, if you have another section wit
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/discover pexels-monstera-production-7139730.jpeg"
+                            <img class="img-fluid" src="assets/img/discover resized pexels-monstera-production-7139730.jpeg"
                                 alt="Discover Yourself" />
                         </a>
                         <div class="portfolio-caption">
@@ -180,7 +186,7 @@ you can override them specifically. For example, if you have another section wit
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/explor pexels-element-digital-1051075.jpeg"
+                            <img class="img-fluid" src="assets/img/explor resized pexels-element-digital-1051075.jpeg"
                                 alt="Explore Possibilities" />
                         </a>
                         <div class="portfolio-caption">
@@ -197,7 +203,7 @@ you can override them specifically. For example, if you have another section wit
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/jigsaw puzzle pexels-ann-h-3482442.jpeg"
+                            <img class="img-fluid" src="assets/img/jigsaw resized puzzle pexels-ann-h-3482442.jpeg"
                                 alt="Find Your Match" />
                         </a>
                         <div class="portfolio-caption">
