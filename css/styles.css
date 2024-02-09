@@ -10929,6 +10929,13 @@ p {
     margin-right: 0;
   }
 }
+
+#contact {
+  background-image: url("../assets/img/Footer\ Happy\ At\ Workpexels-jopwell-2422293.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
