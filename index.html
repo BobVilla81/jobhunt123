@@ -376,20 +376,22 @@
 </section>
 
 
+
+
 <!-- Inquiry Section Updated -->
 <section class="page-section bg-light" id="inquiry">
     <div class="container py-5">
-            <div class="row justify-content-center">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Sample Job Search</h2>
-            <br>
-            <h4 class="text-muted">Tell us a bit more about yourself</h4>
-            <br><br>
-        </div>
-        <br><br><br>
-        <form id="educationForm" action="submit-your-url-here" method="POST">
-            <div class="row align-items-center">
-                <div class="col-md-6">
+        <div class="row justify-content-center">
+            <div class="col-auto"> <!-- Ensure this div wraps the content to center it horizontally -->
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Sample Job Search</h2>
+                    <br>
+                    <h4 class="text-muted">Tell us a bit more about yourself</h4>
+                    <br><br>
+                </div>
+                <form id="educationForm" action="submit-your-url-here" method="POST">
+                    <div class="row justify-content-center"> <!-- Use this to center the form fields -->
+                        <div class="col-md-4">
                     <!-- Education Level -->
                     <div class="form-group">
                         <label for="educationLevel" class="form-label">Your Education Level</label>
@@ -403,7 +405,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <!-- Degree Field -->
                     <div class="form-group">
                         <label for="degreeField" class="form-label">Field of Degree (if applicable)</label>
@@ -474,8 +476,8 @@
             <br>
         </div>
         <form id="hobbyForm" action="submit-your-url-here" method="POST">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-10"> 
                     <div class="form-group text-center">
                         <!-- List of hobbies -->
                         <div class="form-check form-check-inline">
@@ -548,8 +550,8 @@
             <br>
         </div>
         <form id="dislikesForm" action="submit-your-url-here" method="POST">
-            <div class="row">
-                <div class="col-lg-12">
+            <div class="row justify-content-center">
+                <div class="col-lg-10"> 
                     <div class="form-group text-center">
                         <!-- List of dislikes -->
                         <div class="form-check form-check-inline">
@@ -609,29 +611,41 @@
             <p class="text-muted">Based on your interests and preferences.</p>
             <br>
         </div>
-        <div id="jobsContainer" class="row">
-            <!-- Example Job Listing (Static Placeholder) -->
-            <div class="col-md-5">
+        <div class="row justify-content-center">
+            <!-- Example Job Listing 1 -->
+            <div class="col-md-6">
                 <div class="job-listing">
+                    <br>
                     <h4>Software Developer</h4>
                     <p class="text-muted">Tech Company - Full Time</p>
                     <a href="#" class="btn btn-primary" disabled>Apply Now</a>
                 </div>
             </div>
-            <br><br>
-            <div class="col-md-4">
+            <!-- Example Job Listing 2 -->
+            <div class="col-md-6">
                 <div class="job-listing">
+                    <br>
                     <h4>Grounds Keeper</h4>
                     <p class="text-muted">CPS Grounds ltd- Full Time</p>
                     <a href="#" class="btn btn-primary" disabled>Apply Now</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!-- Example Job Listing 3 -->
+            <div class="col-md-6">
                 <div class="job-listing">
+                    <br><br>
                     <h4>Scuba Diver Instructor</h4>
                     <p class="text-muted">PADI - Full Time</p>
                     <a href="#" class="btn btn-primary" disabled>Apply Now</a>
-               
+                </div>
+            </div>
+            <!-- Example Job Listing 4 -->
+            <div class="col-md-6">
+                <div class="job-listing">
+                    <br><br>
+                    <h4>Professional Wrestler</h4>
+                    <p class="text-muted">WWE - Full Time</p>
+                    <a href="#" class="btn btn-primary" disabled>Apply Now</a>
                 </div>
             </div>
             <!-- Placeholder for dynamically loaded job listings -->
@@ -639,6 +653,7 @@
         </div>
     </div>
 </section>
+
 
     <!-- 123 Benefits-->
     <div class="py-5">
