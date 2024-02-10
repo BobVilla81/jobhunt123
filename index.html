@@ -247,7 +247,6 @@
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Introduce Yourself</h4>
-
                         </div>
                         <div class="timeline-body">
                             <p class="text-muted">A simple online assesment can be completed in 20 minutes. <br><br>This
@@ -259,13 +258,11 @@
                 </li>
                 <li class="timeline-inverted">
                     <div class="timeline-image"><img class="rounded-circle img-fluid"
-                            src="assets/img/fire resized.png"
-                            alt="Preferences" /></div>
+                            src="assets/img/fire resized.png" alt="Your Passions" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Your Passions</h4>
-                            <h4>Your Likes | Dislikes</h4>
-                        </div>
+                            </div>
                         <div class="timeline-body">
                             <p class="text-muted">
                                 Share what excites you, your hobbies, and your dreams—even those
@@ -281,7 +278,7 @@
                             alt="Passions" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <<h4>Your Likes | Dislikes</h4>
+                            <h4>Your Likes | Dislikes</h4>
                         </div>
                         <div class="timeline-body">
                             <p class="text-muted">Tell us what resonates with you.
@@ -377,6 +374,248 @@
     </div>
 </section>
 
+<!-- Inquiry Section -->
+<!-- Inquiry Section Updated -->
+<section class="page-section bg-light" id="inquiry">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Sample Job Search</h2>
+            <br>
+            <h4 class="text-muted">Tell us a bit more about yourself</h4>
+        </div>
+        <br><br>
+        <form id="educationForm" action="submit-your-url-here" method="POST">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <!-- Education Level -->
+                    <div class="form-group">
+                        <label for="educationLevel" class="form-label">Your Education Level</label>
+                        <select class="form-control" id="educationLevel" name="educationLevel" required>
+                            <option value="">Select your education level</option>
+                            <option value="high_school">High School</option>
+                            <option value="associate">Associate Degree</option>
+                            <option value="bachelors">Bachelor's Degree</option>
+                            <option value="masters">Master's Degree</option>
+                            <option value="phd">PhD or Higher</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Degree Field -->
+                    <div class="form-group">
+                        <label for="degreeField" class="form-label">Field of Degree (if applicable)</label>
+                        <select class="form-control" id="degreeField" name="degreeField">
+                            <option value="">Select your field of degree</option>
+                            <option value="arts_humanities">Arts & Humanities</option>
+                            <option value="business">Business</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="science">Science</option>
+                            <option value="it">Information Technology</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Trade Skills -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <label for="tradeSkills" class="form-label">Trade Skills</label>
+                    <div class="d-flex flex-wrap justify-content-start">
+                        <!-- Checkboxes for Trade Skills -->
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="welding" name="tradeSkills" value="welding">
+                            <label class="form-check-label" for="welding">Welding</label>
+                        </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="carpentry" name="tradeSkills" value="carpentry">
+                            <label class="form-check-label" for="carpentry">Carpentry</label>
+                        </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
+                            <label class="form-check-label" for="driving">Lorry Driving</label>
+                        </div>
+                        <!-- Add more trade skills as needed -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<!-- Hobby Selection Section -->
+<section class="page-section" id="hobbies">
+    <div class="container">
+        <div class="text-center">
+            <h4 class="text-muted">Select your interests </h4>
+            <br>
+        </div>
+        <form id="hobbyForm" action="submit-your-url-here" method="POST">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group text-center">
+                        <!-- List of hobbies -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Cooking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="woodworking" name="hobbies" value="woodworking">
+                            <label class="form-check-label" for="woodworking">Woodworking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="dancing" name="hobbies" value="dancing">
+                            <label class="form-check-label" for="dancing">Dancing</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="coding" name="hobbies" value="coding">
+                            <label class="form-check-label" for="coding">Coding</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="kayaking" name="hobbies" value="kayaking">
+                            <label class="form-check-label" for="kayaking">Kayaking</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Law</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Foreign Affairs</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Pop Culture</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="coding" name="hobbies" value="coding">
+                            <label class="form-check-label" for="coding">Coding</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="kayaking" name="hobbies" value="kayaking">
+                            <label class="form-check-label" for="kayaking">Dress Making</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Law</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Home Remodeling</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="cooking" name="hobbies" value="cooking">
+                            <label class="form-check-label" for="cooking">Cars</label>
+                        </div>
+                        <!-- Add more hobbies as needed -->
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- Dislikes Selection Section -->
+<section class="page-section bg-light" id="dislikes">
+    <div class="container">
+        <div class="text-center">
+            <h4 class="text-muted">Select the types of work you'd rather avoid</h4>
+            <br>
+        </div>
+        <form id="dislikesForm" action="submit-your-url-here" method="POST">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group text-center">
+                        <!-- List of dislikes -->
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="officeJobs" name="dislikes" value="officeJobs">
+                            <label class="form-check-label" for="officeJobs">Office Jobs</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="outdoorWork" name="dislikes" value="outdoorWork">
+                            <label class="form-check-label" for="outdoorWork">Outdoor Work</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="corporateWorld" name="dislikes" value="corporateWorld">
+                            <label class="form-check-label" for="corporateWorld">Corporate World</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="smallBusiness" name="dislikes" value="smallBusiness">
+                            <label class="form-check-label" for="smallBusiness">Small Business</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="freelancing" name="dislikes" value="freelancing">
+                            <label class="form-check-label" for="freelancing">Freelancing</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="smallBusiness" name="dislikes" value="smallBusiness">
+                            <label class="form-check-label" for="smallBusiness">Higher Education</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="freelancing" name="dislikes" value="freelancing">
+                            <label class="form-check-label" for="freelancing">Government</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="freelancing" name="dislikes" value="freelancing">
+                            <label class="form-check-label" for="freelancing">Finance</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="freelancing" name="dislikes" value="freelancing">
+                            <label class="form-check-label" for="freelancing">Retail</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="freelancing" name="dislikes" value="freelancing">
+                            <label class="form-check-label" for="freelancing">Resturant/Bar</label>
+                        </div>
+                        <!-- Add more dislikes as needed -->
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+<!-- Job Listings Section -->
+<section class="page-section" id="job-listings">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Job Recommendations</h2>
+            <p class="text-muted">Based on your interests and preferences.</p>
+            <br>
+        </div>
+        <div id="jobsContainer" class="row">
+            <!-- Example Job Listing (Static Placeholder) -->
+            <div class="col-md-4">
+                <div class="job-listing">
+                    <h4>Software Developer</h4>
+                    <p class="text-muted">Tech Company - Full Time</p>
+                    <a href="#" class="btn btn-primary" disabled>Apply Now</a>
+                </div>
+            </div>
+            <br><br>
+            <div class="col-md-4">
+                <div class="job-listing">
+                    <h4>Grounds Keeper</h4>
+                    <p class="text-muted">CPS Grounds ltd- Full Time</p>
+                    <a href="#" class="btn btn-primary"disabled>Apply Now</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="job-listing">
+                    <h4>Scuba Diver Instructor</h4>
+                    <p class="text-muted">PADI - Full Time</p>
+                    <a href="#" class="btn btn-primary" disabled>Apply Now</a>
+               
+                </div>
+            </div>
+            <!-- Placeholder for dynamically loaded job listings -->
+            <!-- Additional listings would be populated here -->
+        </div>
+    </div>
+</section>
 
     <!-- 123 Benefits-->
     <div class="py-5">
@@ -413,7 +652,7 @@
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contact Us</h2>
+                <h2 class="section-heading text-uppercase">Contact Us To Get Started</h2>
             </div>
             <!-- * * * * * * * * * * * * * * *-->
             <!-- * * SB Forms Contact Form * *-->
