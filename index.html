@@ -166,6 +166,7 @@
                 <br><br>
                 Discover your pathway to a fulfilling career by telling us about your passions, dislikes, and dreams.</p>
             </div>
+            </div>
         </section>
 
         <!--
@@ -249,7 +250,7 @@
                             <h4>Introduce Yourself</h4>
                         </div>
                         <div class="timeline-body">
-                            <p class="text-muted">A simple online assesment can be completed in 20 minutes. <br><br>This
+                            <p class="text-muted">A simple online assessment can be completed in 20 minutes. <br><br>This
                                 helps us understand where you are
                                 in your career to what you aspire to be. Every detail helps us understand your unique
                                 profile.</p>
@@ -283,7 +284,7 @@
                         <div class="timeline-body">
                             <p class="text-muted">Tell us what resonates with you.
                                 With our online assement you can easily share your likes and dislikes.
-                                <br><br>Whether it's advoiding corporate culture or specific job roles you try to
+                                <br><br>Whether it's avoiding corporate culture or specific job roles you try to
                                 advoid, everything in the questionaire helps us narrow down the perfect
                                 opportunities for you.
                             </p>
@@ -361,7 +362,7 @@
                     </li>
                     <li class="mb-5"> <!-- Increased bottom margin for better spacing before the CTA -->
                         <p  style="font-size: 18px;">
-                            The average coaching cost is <b><u></u>&pound;200 per hour</u></b>, requiring multiple sessions
+                            The average coaching cost is <b><u>&pound;200 per hour</u></b>, requiring multiple sessions
                         </p>
                     </li>
                 </ul>
@@ -374,16 +375,18 @@
     </div>
 </section>
 
-<!-- Inquiry Section -->
+
 <!-- Inquiry Section Updated -->
 <section class="page-section bg-light" id="inquiry">
-    <div class="container">
+    <div class="container py-5">
+            <div class="row justify-content-center">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Sample Job Search</h2>
             <br>
             <h4 class="text-muted">Tell us a bit more about yourself</h4>
+            <br><br>
         </div>
-        <br><br>
+        <br><br><br>
         <form id="educationForm" action="submit-your-url-here" method="POST">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -416,10 +419,13 @@
                     </div>
                 </div>
             </div>
+            <br><br>
+
             <!-- Trade Skills -->
-            <div class="row mt-4">
-                <div class="col-12">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
                     <label for="tradeSkills" class="form-label">Trade Skills</label>
+                    <br>
                     <div class="d-flex flex-wrap justify-content-start">
                         <!-- Checkboxes for Trade Skills -->
                         <div class="form-check mx-2">
@@ -434,10 +440,27 @@
                             <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
                             <label class="form-check-label" for="driving">Lorry Driving</label>
                         </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
+                            <label class="form-check-label" for="driving">Electrician</label>
+                        </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
+                            <label class="form-check-label" for="driving">Plumber</label>
+                        </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
+                            <label class="form-check-label" for="driving">Roofer</label>
+                        </div>
+                        <div class="form-check mx-2">
+                            <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills" value="driving">
+                            <label class="form-check-label" for="driving">Mason</label>
+                        </div>
                         <!-- Add more trade skills as needed -->
                     </div>
                 </div>
             </div>
+        </div>
         </form>
     </div>
 </section>
@@ -588,7 +611,7 @@
         </div>
         <div id="jobsContainer" class="row">
             <!-- Example Job Listing (Static Placeholder) -->
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="job-listing">
                     <h4>Software Developer</h4>
                     <p class="text-muted">Tech Company - Full Time</p>
@@ -600,7 +623,7 @@
                 <div class="job-listing">
                     <h4>Grounds Keeper</h4>
                     <p class="text-muted">CPS Grounds ltd- Full Time</p>
-                    <a href="#" class="btn btn-primary"disabled>Apply Now</a>
+                    <a href="#" class="btn btn-primary" disabled>Apply Now</a>
                 </div>
             </div>
             <div class="col-md-4">
