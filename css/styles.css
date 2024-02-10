@@ -2844,6 +2844,25 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
+.btn-primary {
+  --bs-btn-color: #fff; /* Text color remains white for contrast */
+  --bs-btn-bg: #6c58ec; /* Primary button background color */
+  --bs-btn-border-color: #5a4bcf; /* Slightly darker shade for the border */
+
+  --bs-btn-hover-color: #fff; /* Hover text color remains white for contrast */
+  --bs-btn-hover-bg: #5a4bcf; /* A slightly darker shade for hover background */
+  --bs-btn-hover-border-color: #5041c2; /* Even darker for hover border */
+
+  --bs-btn-focus-shadow-rgb: 90, 75, 207; /* Adjusted to complement the hover bg */
+
+  --bs-btn-active-color: #fff; /* Active text color remains white for contrast */
+  --bs-btn-active-bg: #5041c2; /* A darker shade for active state */
+  --bs-btn-active-border-color: #4638b5; /* Even darker for active border */
+
+  --bs-btn-disabled-color: #fff; /* Disabled text color remains white for contrast */
+  --bs-btn-disabled-bg: #8983d8; /* Lighter shade for disabled background */
+  --bs-btn-disabled-border-color: #8983d8; /* Same as disabled bg for uniformity */
+}
 
 
 .btn-secondary {
