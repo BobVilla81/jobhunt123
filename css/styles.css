@@ -2969,25 +2969,8 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #212529;
 }
 
-.btn-primary {
-  --bs-btn-color: #fff; /* Keeps text color white for contrast */
-  --bs-btn-bg: #1900bb; /* New primary color */
-  --bs-btn-border-color: #1700a9; /* Slightly darker for depth */
 
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #150097; /* Darker shade for hover state */
-  --bs-btn-hover-border-color: #130087; /* Even darker for hover border */
 
-  --bs-btn-focus-shadow-rgb: 25, 0, 187; /* Adjusted to match primary color */
-
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #130087; /* Active state slightly darker than hover */
-  --bs-btn-active-border-color: #110077; /* Consistent with active bg */
-
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #4b42a1; /* Lighter shade for disabled state */
-  --bs-btn-disabled-border-color: #4b42a1; /* Match disabled bg for uniformity */
-}
 
 .btn-outline-secondary {
   --bs-btn-color: #6c757d;
@@ -4131,8 +4114,8 @@ textarea.form-control-lg {
 }
 
 .navbar-dark {
-  --bs-navbar-color: rgba(255, 255, 255, 0.55);
-  --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
+  --bs-navbar-color: rgb(0, 0, 0);
+  --bs-navbar-hover-color: rgba(246, 246, 246, 0.75);
   --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
   --bs-navbar-active-color: #fff;
   --bs-navbar-brand-color: #fff;
