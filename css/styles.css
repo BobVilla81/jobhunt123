@@ -2879,23 +2879,27 @@ textarea.form-control-lg {
   --bs-btn-disabled-bg: #198754;
   --bs-btn-disabled-border-color: #198754;
 }
-
 .btn-info {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #0dcaf0;
-  --bs-btn-border-color: #0dcaf0;
+  --bs-btn-color: #fff; /* Keeps text color white for contrast */
+  --bs-btn-bg: #5c6ec4; /* A lighter, complementary shade of blue */
+  --bs-btn-border-color: #5c6ec4; /* Matching border color */
+
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0baccc;
-  --bs-btn-hover-border-color: #0aa2c0;
-  --bs-btn-focus-shadow-rgb: 49, 210, 242;
+  --bs-btn-hover-bg: #4a5cb8; /* Slightly darker for hover */
+  --bs-btn-hover-border-color: #3a4ca0; /* Even darker for hover border */
+
+  --bs-btn-focus-shadow-rgb: 92, 110, 196; /* Harmonized with bg color */
+
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #0aa2c0;
-  --bs-btn-active-border-color: #0a98b4;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-active-bg: #3a4ca0; /* Active state matches hover border */
+  --bs-btn-active-border-color: #2a3c88; /* Darker for active border */
+
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #0dcaf0;
-  --bs-btn-disabled-border-color: #0dcaf0;
+  --bs-btn-disabled-bg: #5c6ec4; /* Disabled state matches normal bg */
+  --bs-btn-disabled-border-color: #5c6ec4; /* Uniform appearance */
 }
+
+
 
 .btn-warning {
   --bs-btn-color: #fff;
@@ -2966,21 +2970,25 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #72A8B8; /* Changed color */
-  --bs-btn-border-color: #72A8B8; /* Changed color */
+  --bs-btn-color: #fff; /* Keeps text color white for contrast */
+  --bs-btn-bg: #1900bb; /* New primary color */
+  --bs-btn-border-color: #1700a9; /* Slightly darker for depth */
+
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #6098a8; /* Adjusted hover color */
-  --bs-btn-hover-border-color: #568699; /* Adjusted hover border color */
-  --bs-btn-focus-shadow-rgb: 114, 168, 184; /* Adjusted focus shadow */
+  --bs-btn-hover-bg: #150097; /* Darker shade for hover state */
+  --bs-btn-hover-border-color: #130087; /* Even darker for hover border */
+
+  --bs-btn-focus-shadow-rgb: 25, 0, 187; /* Adjusted to match primary color */
+
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #568699; /* Adjusted active color */
-  --bs-btn-active-border-color: #4c7589; /* Adjusted active border color */
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-active-bg: #130087; /* Active state slightly darker than hover */
+  --bs-btn-active-border-color: #110077; /* Consistent with active bg */
+
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #72A8B8; /* Changed color */
-  --bs-btn-disabled-border-color: #72A8B8; /* Changed color */
+  --bs-btn-disabled-bg: #4b42a1; /* Lighter shade for disabled state */
+  --bs-btn-disabled-border-color: #4b42a1; /* Match disabled bg for uniformity */
 }
+
 
 
 .btn-outline-secondary {
@@ -3486,7 +3494,7 @@ textarea.form-control-lg {
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.15);
   --bs-dropdown-link-active-color: #fff;
-  --bs-dropdown-link-active-bg: #72A8B8;
+  --bs-dropdown-link-active-bg:#6c58ec;
   --bs-dropdown-link-disabled-color: #adb5bd;
   --bs-dropdown-header-color: #adb5bd;
 }
@@ -3669,7 +3677,7 @@ textarea.form-control-lg {
 .nav-pills {
   --bs-nav-pills-border-radius: 0.375rem;
   --bs-nav-pills-link-active-color: #fff;
-  --bs-nav-pills-link-active-bg: #72A8B8;
+  --bs-nav-pills-link-active-bg: #6c58ec
 }
 .nav-pills .nav-link {
   background: none;
@@ -10874,7 +10882,7 @@ p {
   font-weight: 700;
 }
 #mainNav .navbar-brand {
-  color: #72A8B8;
+  color: #1900bb;
   font-family: 'Open Sans', sans-serif, sans-serif, "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   letter-spacing: 0.0625em;
