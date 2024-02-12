@@ -11326,3 +11326,38 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 
+.how-we-match-you {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.how-we-match-you .section-heading {
+  margin-bottom: 40px;
+}
+
+.step {
+  text-align: center;
+  padding: 20px;
+}
+
+.step .number {
+  font-size: 24px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.step .icon {
+  width: 80px;
+  height: auto;
+  margin: 20px 0;
+}
+
+.step h3 {
+  font-size: 18px;
+  color: #333;
+}
+
+.step p {
+  font-size: 14px;
+  color: #666;
+}
