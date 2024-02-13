@@ -1,34 +1,36 @@
-module.exports = async (req, res) => {
-    // Log incoming request headers and body for debugging
-    console.log("Request Headers:", req.headers);
-    console.log("Request Body:", req.body);
+const axios = require('axios');
 
-    // Assuming req.body is already parsed as JSON by Vercel (if Content-Type is application/json)
-    const { query, location, educationLevel, degreeField, interests, dislikes } = req.body;
+module.exports = async (req, res) => {
+    // Set CORS headers
+    // Allow-Origin header allows all domains (*) or you can specify domains like https://yourdomain.com
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    // Check if it's a preflight request and end it after setting headers
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    // Your API call and the rest of your function logic below
+    const options = {
+        method: 'GET',
+        url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
+        params: {
+            query: "software engineer",
+            location: "San Francisco, CA",
+        },
+        headers: {
+            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
+            'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com'
+        }
+    };
 
     try {
-        // Logic to process the request and fetch jobs
-        // This is where you would include the logic to fetch jobs from an external API or database.
-        // Make sure to include your actual fetching logic here.
-
-        // Example: Fetching jobs from an API
-        const jobs = await fetchJobsFromAPI(query, location, educationLevel, degreeField, interests, dislikes);
-        // Process and filter jobs based on the logic specific to your application needs
-
-        // Sending a successful response with the jobs data
-        res.status(200).json({ jobs });
+        const response = await axios.request(options);
+        res.status(200).json(response.data);
     } catch (error) {
-        console.error("Error processing request:", error);
-
-        // Sending an error response
-        res.status(500).send({ error: "Internal Server Error", details: error.message });
+        console.error('Error fetching data:', error);
+        res.status(500).json({ message: 'Failed to fetch data' });
     }
 };
-
-// Example function to simulate fetching jobs from an external API
-// Replace this with your actual function to fetch jobs
-async function fetchJobsFromAPI(query, location, educationLevel, degreeField, interests, dislikes) {
-    // Mocked fetch logic
-    return []; // Return fetched jobs
-}
 
