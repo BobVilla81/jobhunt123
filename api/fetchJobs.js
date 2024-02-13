@@ -1,24 +1,13 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-    // Set CORS headers
-    // Allow-Origin header allows all domains (*) or you can specify domains like https://yourdomain.com
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    // Check if it's a preflight request and end it after setting headers
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
+    // Assume req.body contains the dislikes array among other parameters
+    const { query, location, dislikes } = req.body;
 
-    // Your API call and the rest of your function logic below
     const options = {
         method: 'GET',
         url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
-        params: {
-            query: "software engineer",
-            location: "San Francisco, CA",
-        },
+        params: { query, location },
         headers: {
             'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
             'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com'
@@ -27,7 +16,18 @@ module.exports = async (req, res) => {
 
     try {
         const response = await axios.request(options);
-        res.status(200).json(response.data);
+        let filteredData = response.data;
+
+        // Filter logic: This needs to be adjusted based on the actual data structure and criteria
+        if (dislikes && dislikes.length > 0) {
+            filteredData.jobs = filteredData.jobs.filter(job => {
+                // Implement the logic to check if the job should be excluded based on dislikes
+                // This is a placeholder logic, adjust according to your data structure and needs
+                return !dislikes.some(dislike => job.description.toLowerCase().includes(dislike.toLowerCase()));
+            });
+        }
+
+        res.status(200).json(filteredData);
     } catch (error) {
         console.error('Error fetching data:', error);
         res.status(500).json({ message: 'Failed to fetch data' });
