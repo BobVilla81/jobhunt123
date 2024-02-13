@@ -1,36 +1,34 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-    // Set CORS headers
-    // Allow-Origin header allows all domains (*) or you can specify domains like https://yourdomain.com
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    // Check if it's a preflight request and end it after setting headers
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
+    console.log("Starting to process fetchJobs request...");
 
-    // Your API call and the rest of your function logic below
-    const options = {
-        method: 'GET',
-        url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
-        params: {
-            query: "software engineer",
-            location: "San Francisco, CA",
-        },
-        headers: {
-            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
-            'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com'
-        }
-    };
+    // Assume req.body contains necessary parameters for the API call
+    const { query, location } = req.body;
 
+    console.log("Preparing to call external API...");
     try {
-        const response = await axios.request(options);
-        res.status(200).json(response.data);
+        const response = await axios.get('https://example.com/api/jobs', {
+            params: { query, location }
+        });
+        console.log("External API call successful.");
+
+        // If there's any data processing involved, log before starting it
+        console.log("Processing data...");
+        const processedData = processData(response.data);
+        console.log("Data processing completed.");
+
+        res.status(200).json(processedData);
     } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).json({ message: 'Failed to fetch data' });
+        console.error("Error during function execution:", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
     }
+
+    console.log("fetchJobs function execution completed.");
 };
+
+function processData(data) {
+    // Process your data here
+    return data; // Return the processed data
+}
 
