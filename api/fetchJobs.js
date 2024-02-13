@@ -1,16 +1,27 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
+    // Set CORS headers
+    // Allow-Origin header allows all domains (*) or you can specify domains like https://yourdomain.com
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    // Check if it's a preflight request and end it after setting headers
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    // Your API call and the rest of your function logic below
     const options = {
         method: 'GET',
-         url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
+        url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
         params: {
-            query: "software engineer", // Example search term
-            location: "San Francisco, CA", // Example location
+            query: "software engineer",
+            location: "San Francisco, CA",
         },
         headers: {
-            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY, 
-            'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com' 
+            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
+            'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com'
         }
     };
 
@@ -22,3 +33,4 @@ module.exports = async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch data' });
     }
 };
+
