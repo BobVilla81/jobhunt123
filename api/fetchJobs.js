@@ -1,36 +1,34 @@
-const axios = require('axios');
-
 module.exports = async (req, res) => {
-    // Assume req.body contains the dislikes array among other parameters
-    const { query, location, dislikes } = req.body;
+    // Log incoming request headers and body for debugging
+    console.log("Request Headers:", req.headers);
+    console.log("Request Body:", req.body);
 
-    const options = {
-        method: 'GET',
-        url: 'https://indeed-api2.p.rapidapi.com/analyst/ie/1',
-        params: { query, location },
-        headers: {
-            'X-RapidAPI-Key': process.env.RAPIDAPI_KEY,
-            'X-RapidAPI-Host': 'indeed-api2.p.rapidapi.com'
-        }
-    };
+    // Assuming req.body is already parsed as JSON by Vercel (if Content-Type is application/json)
+    const { query, location, educationLevel, degreeField, interests, dislikes } = req.body;
 
     try {
-        const response = await axios.request(options);
-        let filteredData = response.data;
+        // Logic to process the request and fetch jobs
+        // This is where you would include the logic to fetch jobs from an external API or database.
+        // Make sure to include your actual fetching logic here.
 
-        // Filter logic: This needs to be adjusted based on the actual data structure and criteria
-        if (dislikes && dislikes.length > 0) {
-            filteredData.jobs = filteredData.jobs.filter(job => {
-                // Implement the logic to check if the job should be excluded based on dislikes
-                // This is a placeholder logic, adjust according to your data structure and needs
-                return !dislikes.some(dislike => job.description.toLowerCase().includes(dislike.toLowerCase()));
-            });
-        }
+        // Example: Fetching jobs from an API
+        const jobs = await fetchJobsFromAPI(query, location, educationLevel, degreeField, interests, dislikes);
+        // Process and filter jobs based on the logic specific to your application needs
 
-        res.status(200).json(filteredData);
+        // Sending a successful response with the jobs data
+        res.status(200).json({ jobs });
     } catch (error) {
-        console.error('Error fetching data:', error);
-        res.status(500).json({ message: 'Failed to fetch data' });
+        console.error("Error processing request:", error);
+
+        // Sending an error response
+        res.status(500).send({ error: "Internal Server Error", details: error.message });
     }
 };
+
+// Example function to simulate fetching jobs from an external API
+// Replace this with your actual function to fetch jobs
+async function fetchJobsFromAPI(query, location, educationLevel, degreeField, interests, dislikes) {
+    // Mocked fetch logic
+    return []; // Return fetched jobs
+}
 
