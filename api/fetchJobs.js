@@ -11,9 +11,6 @@ module.exports = async (req, res) => {
     // Proceed with your logic only if req.body exists
     const { query, location } = req.body;
 
-    // Assume req.body contains necessary parameters for the API call
-    const { query, location } = req.body;
-
     console.log("Preparing to call external API...");
     try {
         const response = await axios.get('https://example.com/api/jobs', {
