@@ -289,101 +289,112 @@
     </section>
 
 
-    <!-- Inquiry Section Updated -->
-    <section class="page-section bg-light" id="inquiry">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-auto"> <!-- Ensure this div wraps the content to center it horizontally -->
-                    <div class="text-center">
-                        <h2 class="section-heading text-uppercase">Sample Job Search</h2>
-                        <br>
-                        <h4 class="text-muted">Tell us a bit more about yourself</h4>
-                        <br><br>
+<!-- Inquiry Section Updated -->
+<section class="page-section bg-light" id="inquiry">
+    <div class="container py-5">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Sample Job Search</h2>
+            <h4 class="text-muted">Tell us a bit more about yourself</h4>
+        </div>
+        <form id="jobSearchForm" action="submit-your-url-here" method="POST" class="mt-4">
+            <!-- Query and Location Fields -->
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-4">
+                    <input type="text" id="jobQuery" class="form-control mb-3" placeholder="Anything that sparks your interest!" required>
                     </div>
-                    <form id="educationForm" action="submit-your-url-here" method="POST">
-                        <div class="row justify-content-center"> <!-- Use this to center the form fields -->
-                            <div class="col-md-4">
-                                <!-- Education Level -->
-                                <div class="form-group">
-                                    <label for="educationLevel" class="form-label">Your Education Level</label>
-                                    <select class="form-control" id="educationLevel" name="educationLevel" required>
-                                        <option value="">Select your education level</option>
-                                        <option value="high_school">High School</option>
-                                        <option value="associate">Associate Degree</option>
-                                        <option value="bachelors">Bachelor's Degree</option>
-                                        <option value="masters">Master's Degree</option>
-                                        <option value="phd">PhD or Higher</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <!-- Degree Field -->
-                                <div class="form-group">
-                                    <label for="degreeField" class="form-label">Field of Degree (if applicable)</label>
-                                    <select class="form-control" id="degreeField" name="degreeField">
-                                        <option value="">Select your field of degree</option>
-                                        <option value="arts_humanities">Arts & Humanities</option>
-                                        <option value="business">Business</option>
-                                        <option value="engineering">Engineering</option>
-                                        <option value="science">Science</option>
-                                        <option value="it">Information Technology</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br><br>
-
-                        <!-- Trade Skills -->
-                        <div class="row align-items-center">
-                            <div class="col-12 text-center">
-                                <label for="tradeSkills" class="form-label">Trade Skills</label>
-                                <br>
-                                <div class="d-flex flex-wrap justify-content-start">
-                                    <!-- Checkboxes for Trade Skills -->
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="welding" name="tradeSkills"
-                                            value="welding">
-                                        <label class="form-check-label" for="welding">Welding</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="carpentry"
-                                            name="tradeSkills" value="carpentry">
-                                        <label class="form-check-label" for="carpentry">Carpentry</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
-                                            value="driving">
-                                        <label class="form-check-label" for="driving">Lorry Driving</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
-                                            value="driving">
-                                        <label class="form-check-label" for="driving">Electrician</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
-                                            value="driving">
-                                        <label class="form-check-label" for="driving">Plumber</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
-                                            value="driving">
-                                        <label class="form-check-label" for="driving">Roofer</label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
-                                            value="driving">
-                                        <label class="form-check-label" for="driving">Mason</label>
-                                    </div>
-                                    <!-- Add more trade skills as needed -->
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-4">   
+                    <input type="text" id="jobLocation" class="form-control" placeholder="Your location or desired location" required>
                 </div>
-                </form>
             </div>
-    </section>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <br><br>
+
+                    <!-- Education Level and Field of Degree, adjusted for minimal text wrapping -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label for="educationLevel" class="form-label">Education Level</label>
+                                <select class="form-control" id="educationLevel" name="educationLevel" required>
+                                    <option value="">Select level</option>
+                                    <option value="high_school">High School</option>
+                                    <option value="associate">Associate</option>
+                                    <option value="bachelors">Bachelor's</option>
+                                    <option value="masters">Master's</option>
+                                    <option value="phd">PhD or Higher</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label for="degreeField" class="form-label">Degree Field</label>
+                                <select class="form-control" id="degreeField" name="degreeField">
+                                    <option value="">Select field</option>
+                                    <option value="arts_humanities">Arts & Humanities</option>
+                                    <option value="business">Business</option>
+                                    <option value="engineering">Engineering</option>
+                                    <option value="science">Science</option>
+                                    <option value="it">Info Tech</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+<br><br>
+
+                    <!-- Trade Skills -->
+                    <div class="row align-items-center">
+                        <div class="col-12 text-center">
+                            <label for="tradeSkills" class="form-label">Trade Skills</label>
+                            <br>
+                            <div class="d-flex flex-wrap justify-content-start">
+                                <!-- Checkboxes for Trade Skills -->
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="welding" name="tradeSkills"
+                                        value="welding">
+                                    <label class="form-check-label" for="welding">Welding</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="carpentry"
+                                        name="tradeSkills" value="carpentry">
+                                    <label class="form-check-label" for="carpentry">Carpentry</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
+                                        value="driving">
+                                    <label class="form-check-label" for="driving">Lorry Driving</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
+                                        value="driving">
+                                    <label class="form-check-label" for="driving">Electrician</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
+                                        value="driving">
+                                    <label class="form-check-label" for="driving">Plumber</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
+                                        value="driving">
+                                    <label class="form-check-label" for="driving">Roofer</label>
+                                </div>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="driving" name="tradeSkills"
+                                        value="driving">
+                                    <label class="form-check-label" for="driving">Mason</label>
+                                </div>
+                                <!-- Add more trade skills as needed -->
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+</section>
+
+
+
 
 
     <!-- Hobby Selection Section -->
@@ -563,22 +574,24 @@
         </div>
     </div>
 
-<!-- Job Recommendations Section -->
-<section class="page-section bg-light" id="job-recommendations">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Job Recommendations</h2>
-            <p class="text-muted">Based on your interests and preferences</p>
+    <!-- Job Recommendations Section -->
+    <section class="page-section bg-light" id="job-recommendations">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Job Recommendations</h2>
+                <p class="text-muted">Based on your interests and preferences</p>
+            </div>
+            <!-- Container for dynamically loaded job listings -->
+            <div class="text-center mt-4">
+                <button type="button" id="findJobsBtn" class="btn btn-primary btn-xl text-uppercase"
+                    onclick="fetchIndeedJobListings()">Find Jobs</button>
+            </div>
+            <!-- New Section for Displaying Job Listings -->
+            <div id="jobListingsDisplay" class="row justify-content-center">
+                <!-- Job listings will be inserted here by the displayJobListings() function -->
+            </div>
         </div>
-        <!-- Container for dynamically loaded job listings -->
-        <div id="jobListings" class="row justify-content-center">
-            <!-- Job listings will be inserted here by the displayJobListings() function -->
-        </div>
-        <div class="text-center mt-4">
-            <button type="button" id="findJobsBtn" class="btn btn-primary btn-xl text-uppercase" onclick="fetchIndeedJobListings()">Find Jobs</button>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -709,40 +722,66 @@
     </footer>
 
     <script>
-        // Function to trigger the serverless function for fetching job listings
+
         function fetchIndeedJobListings() {
+            // Collect user inputs
+            const educationLevel = document.getElementById('educationLevel').value;
+            const degreeField = document.getElementById('degreeField').value;
+            // Assuming you have inputs or selections for interests and dislikes
+            const interests = []; // This should be filled with actual values
+            const dislikes = []; // This should be filled with actual values
+            // Example: document.querySelectorAll('input[name="hobbies"]:checked') for checkboxes
+
+            // Collecting values for interests and dislikes (assuming checkboxes)
+            document.querySelectorAll('input[name="hobbies"]:checked').forEach((checkbox) => {
+                interests.push(checkbox.value);
+            });
+            document.querySelectorAll('input[name="dislikes"]:checked').forEach((checkbox) => {
+                dislikes.push(checkbox.value);
+            });
             fetch('https://jobhunt123.vercel.app/api/fetchJobs', {
-                method: 'POST', // or 'GET' if your serverless function expects a GET request
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     query: "software developer",
-                    location: "San Francisco",
+                    location: "London",
+                    educationLevel: educationLevel,
+                    degreeField: degreeField,
+                    interests: interests,
+                    dislikes: dislikes,
                 }),
             })
-            .then(response => response.json())
-            .then(data => displayJobListings(data))
-            .catch(error => console.error("Error fetching data:", error));
+
+                .then(response => response.json())
+                .then(data => displayJobListings(data))
+                .catch(error => console.error("Error fetching data:", error));
         }
-    
-        // Example function to display job listings
+
         function displayJobListings(data) {
-            const jobsContainer = document.getElementById('jobListings');
+            const jobsContainer = document.getElementById('jobListingsDisplay'); // Updated ID
             jobsContainer.innerHTML = ''; // Clear previous listings
-    
+
             data.jobs.forEach(job => {
                 const jobElement = document.createElement('div');
+                jobElement.classList.add("col-md-4"); // Bootstrap column for layout, adjust as necessary
                 jobElement.innerHTML = `
-                    <h4>${job.title}</h4>
-                    <p>${job.company} - ${job.location}</p>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${job.title}</h5>
+                    <p class="card-text">${job.company} - ${job.location}</p>
                     <a href="${job.url}" target="_blank" class="btn btn-primary">Apply Now</a>
-                `;
+                </div>
+            </div>
+        `;
                 jobsContainer.appendChild(jobElement);
             });
         }
+
     </script>
-    
+
+
 
 
     <!-- Bootstrap core JS-->
