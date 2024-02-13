@@ -542,12 +542,6 @@
             </form>
         </div>
         </div>
-
-
-        <br><br><br>
-        <div class="text-center">
-            <button type="button" id="findJobsBtn" class="btn btn-primary btn-xl text-uppercase">Find Jobs</button>
-        </div>
     </section>
 
     <!-- Job Listings Modal -->
@@ -569,56 +563,23 @@
         </div>
     </div>
 
-    <!-- Job Listings Section -->
-    <section class="page-section" id="job-listings">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Job Recommendations</h2>
-                <p class="text-muted">Based on your interests and preferences</p>
-                <br>
-            </div>
-            <div class="row justify-content-center">
-                <!-- Example Job Listing 1 -->
-                <div class="col-md-6">
-                    <div class="job-listing">
-                        <br>
-                        <h4>Software Developer</h4>
-                        <p class="text-muted">Tech Company - Full Time</p>
-                        <button href="#" class="btn btn-primary" disabled>Apply Now</button>
-                    </div>
-                </div>
-                <!-- Example Job Listing 2 -->
-                <div class="col-md-6">
-                    <div class="job-listing">
-                        <br>
-                        <h4>Grounds Keeper</h4>
-                        <p class="text-muted">CPS Grounds ltd- Full Time</p>
-                        <button href="#" class="btn btn-primary" disabled>Apply Now</button>
-                    </div>
-                </div>
-                <!-- Example Job Listing 3 -->
-                <div class="col-md-6">
-                    <div class="job-listing">
-                        <br><br>
-                        <h4>Scuba Diver Instructor</h4>
-                        <p class="text-muted">PADI - Full Time</p>
-                        <button href="#" class="btn btn-primary" disabled>Apply Now</button>
-                    </div>
-                </div>
-                <!-- Example Job Listing 4 -->
-                <div class="col-md-6">
-                    <div class="job-listing">
-                        <br><br>
-                        <h4>Professional Wrestler</h4>
-                        <p class="text-muted">WWE - Full Time</p>
-                        <button href="#" class="btn btn-primary" disabled>Apply Now</button>
-                    </div>
-                </div>
-                <!-- Placeholder for dynamically loaded job listings -->
-                <!-- Additional listings would be populated here -->
-            </div>
+<!-- Job Recommendations Section -->
+<section class="page-section bg-light" id="job-recommendations">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Job Recommendations</h2>
+            <p class="text-muted">Based on your interests and preferences</p>
         </div>
-    </section>
+        <!-- Container for dynamically loaded job listings -->
+        <div id="jobListings" class="row justify-content-center">
+            <!-- Job listings will be inserted here by the displayJobListings() function -->
+        </div>
+        <div class="text-center mt-4">
+            <button type="button" id="findJobsBtn" class="btn btn-primary btn-xl text-uppercase" onclick="fetchIndeedJobListings()">Find Jobs</button>
+        </div>
+    </div>
+</section>
+
 
 
     <!-- 123 Benefits-->
@@ -748,66 +709,40 @@
     </footer>
 
     <script>
-        // Function to handle the gathering of form inputs and fetching job listings
-        function fetchJobListings() {
-            event.preventDefault(); // Prevent default form submission behavior
-
-            // Gather education level and field
-            const educationLevel = document.getElementById('educationLevel').value;
-            const degreeField = document.getElementById('degreeField').value;
-
-            // Gather selected hobbies
-            const hobbies = Array.from(document.querySelectorAll('#hobbies input[type=checkbox]:checked')).map(el => el.value);
-
-            // Gather selected dislikes (types of work to avoid)
-            const dislikes = Array.from(document.querySelectorAll('#dislikes input[type=checkbox]:checked')).map(el => el.value);
-
-            // Construct an API request URL with these parameters
-            const apiUrl = `https://api.example.com/jobs?educationLevel=${educationLevel}&degreeField=${degreeField}&hobbies=${hobbies.join(',')}&apiKey=YOUR_API_KEY`;
-
-            // Fetch and process the job listings
-            fetch(apiUrl).then(response => response.json()).then(data => {
-                const filteredJobs = filterDislikedJobs(data.jobs, dislikes);
-                displayJobListings(filteredJobs);
-
-                // Display the modal after job listings have been processed
-                new bootstrap.Modal(document.getElementById('jobListingsModal')).show();
-            }).catch(error => {
-                console.error('Error fetching jobs:', error);
+        // Function to trigger the serverless function for fetching job listings
+        function fetchIndeedJobListings() {
+            fetch('https://jobhunt123.vercel.app/api/fetchJobs', {
+                method: 'POST', // or 'GET' if your serverless function expects a GET request
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    query: "software developer",
+                    location: "San Francisco",
+                }),
+            })
+            .then(response => response.json())
+            .then(data => displayJobListings(data))
+            .catch(error => console.error("Error fetching data:", error));
+        }
+    
+        // Example function to display job listings
+        function displayJobListings(data) {
+            const jobsContainer = document.getElementById('jobListings');
+            jobsContainer.innerHTML = ''; // Clear previous listings
+    
+            data.jobs.forEach(job => {
+                const jobElement = document.createElement('div');
+                jobElement.innerHTML = `
+                    <h4>${job.title}</h4>
+                    <p>${job.company} - ${job.location}</p>
+                    <a href="${job.url}" target="_blank" class="btn btn-primary">Apply Now</a>
+                `;
+                jobsContainer.appendChild(jobElement);
             });
         }
-
-        // Function to filter out jobs that match any of the user's dislikes
-        function filterDislikedJobs(jobs, dislikes) {
-            // Implement filtering logic here based on your job data structure and dislikes
-            // Example placeholder logic
-            return jobs.filter(job => !dislikes.includes(job.category)); // Adjust based on actual data structure
-        }
-
-        // Function to display job listings on the page
-        function displayJobListings(jobs) {
-            const listingsContainer = document.getElementById('jobListings');
-            listingsContainer.innerHTML = ''; // Clear existing listings
-
-            if (jobs && jobs.length > 0) {
-                jobs.forEach(job => {
-                    const jobElement = document.createElement('div');
-                    jobElement.classList.add('job-listing');
-                    jobElement.innerHTML = `
-                        <h4>${job.title}</h4>
-                        <p>${job.company} - ${job.location}</p>
-                        <a href="${job.url}" target="_blank" class="btn btn-primary">Apply Now</a>
-                    `;
-                    listingsContainer.appendChild(jobElement);
-                });
-            } else {
-                listingsContainer.innerHTML = '<p>No job listings found based on your preferences.</p>';
-            }
-        }
-
-        document.getElementById('findJobsBtn').addEventListener('click', fetchJobListings);
-
     </script>
+    
 
 
     <!-- Bootstrap core JS-->
