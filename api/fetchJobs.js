@@ -3,6 +3,14 @@ const axios = require('axios');
 module.exports = async (req, res) => {
     console.log("Starting to process fetchJobs request...");
 
+    if (!req.body) {
+        console.error("Request body is undefined. Make sure Content-Type is set to application/json and the body is not empty.");
+        return res.status(400).json({ error: "Request body is undefined." });
+    }
+
+    // Proceed with your logic only if req.body exists
+    const { query, location } = req.body;
+
     // Assume req.body contains necessary parameters for the API call
     const { query, location } = req.body;
 
