@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     }
 
     // Proceed with your logic only if req.body exists
-    const { query, location } = req.body;
+   const { query, location, interests, dislikes } = req.body;
 
     console.log("Preparing to call external API...");
     try {
