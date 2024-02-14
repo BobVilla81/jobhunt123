@@ -2,38 +2,25 @@ const axios = require('axios');
 
 const options = {
   method: 'GET',
-  url: 'https://indeed-indeed.p.rapidapi.com/apisearch',
+  url: 'https://www.reed.co.uk/api/1.0/search', // This is a hypothetical endpoint; check the actual Reed API docs
   params: {
-    publisher: '<REQUIRED>',
-    v: '2',
-    format: 'json',
-    callback: '<REQUIRED>',
-    q: 'java',
-    l: 'austin, tx',
-    sort: '<REQUIRED>',
-    radius: '25',
-    st: '<REQUIRED>',
-    jt: '<REQUIRED>',
-    start: '<REQUIRED>',
-    limit: '<REQUIRED>',
-    fromage: '<REQUIRED>',
-    highlight: '<REQUIRED>',
-    filter: '<REQUIRED>',
-    latlong: '<REQUIRED>',
-    co: '<REQUIRED>',
-    chnl: '<REQUIRED>',
-    userip: '<REQUIRED>',
-    useragent: '<REQUIRED>'
+    keywords: 'java',
+    location: 'austin, tx',
+    distanceFromLocation: '25',
+    // Add other parameters according to Reed's API documentation
   },
   headers: {
-    'X-RapidAPI-Key': 'd9b28f633dmsh7171c1442f2f9f6p193c42jsn036bea77781d',
-    'X-RapidAPI-Host': 'indeed-indeed.p.rapidapi.com'
+    // Authentication method as required by Reed, e.g., API Key in headers or query params
+    'Authorization': '5e8f0d41-22be-4a3f-9aee-034b9905b24b' 
   }
 };
 
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-}
+(async () => {
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+})();
+
