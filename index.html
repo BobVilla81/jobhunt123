@@ -289,27 +289,29 @@
     </section>
 
 
-<!-- Inquiry Section Updated -->
-<section class="page-section bg-light" id="inquiry">
-    <div class="container py-5">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Sample Job Search</h2>
-            <h4 class="text-muted">Tell us a bit more about yourself</h4>
-        </div>
-        <form id="jobSearchForm" action="submit-your-url-here" method="POST" class="mt-4">
-            <!-- Query and Location Fields -->
-            <div class="row justify-content-center mb-3">
-                <div class="col-md-4">
-                    <input type="text" id="jobQuery" class="form-control mb-3" placeholder="Anything that sparks your interest!" required>
-                    </div>
-                    <div class="col-md-4">   
-                    <input type="text" id="jobLocation" class="form-control" placeholder="Your location or desired location" required>
-                </div>
+    <!-- Inquiry Section Updated -->
+    <section class="page-section bg-light" id="inquiry">
+        <div class="container py-5">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Sample Job Search</h2>
+                <h4 class="text-muted">Tell us a bit more about yourself</h4>
             </div>
+            <form id="jobSearchForm" action="submit-your-url-here" method="POST" class="mt-4">
+                <!-- Query and Location Fields -->
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-4">
+                        <input type="text" id="jobQuery" class="form-control mb-3"
+                            placeholder="Anything that sparks your interest!" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="jobLocation" class="form-control"
+                            placeholder="Your location or desired location" required>
+                    </div>
+                </div>
 
             </form>
         </div>
-</section>
+    </section>
 
     <!-- Hobby Selection Section -->
     <section class="page-section" id="hobbies">
@@ -498,7 +500,7 @@
             <!-- Container for dynamically loaded job listings -->
             <div class="text-center mt-4">
                 <button type="button" id="findJobsBtn" class="btn btn-primary btn-xl text-uppercase"
-                    onclick="fetchIndeedJobListings()">Find Jobs</button>
+                    onclick="fetchJobsFromReed()">Find Jobs</button>
             </div>
             <!-- New Section for Displaying Job Listings -->
             <div id="jobListingsDisplay" class="row justify-content-center">
@@ -636,64 +638,77 @@
     </footer>
 
     <script>
-
-        function fetchIndeedJobListings() {
-            // Collect user inputs
-            const educationLevel = document.getElementById('educationLevel').value;
-            const degreeField = document.getElementById('degreeField').value;
-            // Assuming you have inputs or selections for interests and dislikes
-            const interests = []; // This should be filled with actual values
-            const dislikes = []; // This should be filled with actual values
-            // Example: document.querySelectorAll('input[name="hobbies"]:checked') for checkboxes
-
-            // Collecting values for interests and dislikes (assuming checkboxes)
-            document.querySelectorAll('input[name="hobbies"]:checked').forEach((checkbox) => {
-                interests.push(checkbox.value);
-            });
-            document.querySelectorAll('input[name="dislikes"]:checked').forEach((checkbox) => {
-                dislikes.push(checkbox.value);
-            });
-            fetch('https://jobhunt123.vercel.app/api/fetchJobs', {
-                method: 'POST',
+        // Function to initiate a job search
+        function fetchJobsFromReed() {
+            const jobQuery = document.getElementById('jobQuery').value;
+            const jobLocation = document.getElementById('jobLocation').value;
+    
+            // Show loading indicator
+            showLoadingIndicator();
+    
+            const url = `https://www.reed.co.uk/api/1.0/search?keywords=${encodeURIComponent(jobQuery)}&location=${encodeURIComponent(jobLocation)}`;
+    
+            fetch(url, {
+                method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    query: "software developer",
-                    location: "London",
-                    educationLevel: educationLevel,
-                    degreeField: degreeField,
-                    interests: interests,
-                    dislikes: dislikes,
-                }),
+                    'Authorization': '5e8f0d41-22be-4a3f-9aee-034b9905b24b' // Make sure to replace YOUR_API_KEY with your actual API key
+                }
             })
-
-                .then(response => response.json())
-                .then(data => displayJobListings(data))
-                .catch(error => console.error("Error fetching data:", error));
-        }
-
-        function displayJobListings(data) {
-            const jobsContainer = document.getElementById('jobListingsDisplay'); // Updated ID
-            jobsContainer.innerHTML = ''; // Clear previous listings
-
-            data.jobs.forEach(job => {
-                const jobElement = document.createElement('div');
-                jobElement.classList.add("col-md-4"); // Bootstrap column for layout, adjust as necessary
-                jobElement.innerHTML = `
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${job.title}</h5>
-                    <p class="card-text">${job.company} - ${job.location}</p>
-                    <a href="${job.url}" target="_blank" class="btn btn-primary">Apply Now</a>
-                </div>
-            </div>
-        `;
-                jobsContainer.appendChild(jobElement);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                hideLoadingIndicator(); // Hide loading indicator
+                if (data.results && data.results.length > 0) {
+                    displayJobListings(data.results);
+                } else {
+                    displayNoResultsMessage();
+                }
+            })
+            .catch(error => {
+                hideLoadingIndicator(); // Hide loading indicator
+                displayErrorMessage(error);
             });
         }
-
+    
+        // Show loading indicator
+        function showLoadingIndicator() {
+            document.getElementById('loadingIndicator').style.display = 'block';
+        }
+    
+        // Hide loading indicator
+        function hideLoadingIndicator() {
+            document.getElementById('loadingIndicator').style.display = 'none';
+        }
+    
+        // Display "No results found" message
+        function displayNoResultsMessage() {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.innerHTML = 'No results found. Please try a different search.';
+        }
+    
+        // Display error message
+        function displayErrorMessage(error) {
+            const messageContainer = document.getElementById('messageContainer');
+            messageContainer.innerHTML = `An error occurred: ${error.message}`;
+        }
+    
+        // Function to display job listings (simplified for demonstration)
+        function displayJobListings(jobs) {
+            const listingsContainer = document.getElementById('jobListingsDisplay');
+            listingsContainer.innerHTML = ''; // Clear existing listings
+            jobs.forEach(job => {
+                const jobElement = document.createElement('div');
+                jobElement.innerHTML = `<p>${job.jobTitle} - ${job.locationName}</p>`; // Simplified display
+                listingsContainer.appendChild(jobElement);
+            });
+        }
     </script>
+    
+    
 
 
 
