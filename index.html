@@ -490,28 +490,27 @@
         </div>
     </div>
 
-   <!-- Job Recommendations Section -->
+<!-- Job Recommendations Section -->
 <section class="page-section bg-light" id="job-recommendations">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Job Recommendations</h2>
             <p class="text-muted">Based on your interests and preferences</p>
-        </div>
-        <!-- Container for dynamically loaded job listings -->
-        <div class="text-center mt-4">
             <button onclick="fetchJobsFromReed()" class="btn btn-primary btn-xl text-uppercase">Find Jobs</button>
         </div>
 
+        <!-- Placeholder for the loading indicator -->
         <div class="text-center" id="loadingIndicator" style="display: none;">
             <i class="fas fa-spinner fa-spin fa-3x"></i>
         </div>
-        
-        <!-- New Section for Displaying Job Listings -->
-        <div id="jobListingsDisplay" class="row justify-content-center">
-            <!-- Job listings will be inserted here by the displayJobListings() function -->
+
+        <!-- Explicitly styled container for Job Listings -->
+        <div id="jobListingsDisplay" class="row justify-content-center mt-4">
+            <!-- Initially empty, will be filled with job listings by the displayJobListings() function -->
         </div>
     </div>
 </section>
+
 
 
 
@@ -648,6 +647,8 @@
          // Define the function to fetch jobs from Reed via your serverless function
     function fetchJobsFromReed() {
         // Retrieve user input
+        console.log("fetchJobsFromReed function is called");
+        
         const jobQuery = document.getElementById('jobQuery').value;
         const jobLocation = document.getElementById('jobLocation').value;
 
