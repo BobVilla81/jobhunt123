@@ -490,26 +490,32 @@
         </div>
     </div>
 
-<!-- Job Recommendations Section -->
-<section class="page-section bg-light" id="job-recommendations">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Job Recommendations</h2>
-            <p class="text-muted">Based on your interests and preferences</p>
-            <button onclick="fetchJobsFromReed()" class="btn btn-primary btn-xl text-uppercase">Find Jobs</button>
-        </div>
+    <!-- Job Recommendations Section -->
+    <section class="page-section bg-light" id="job-recommendations">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Job Recommendations</h2>
+                <p class="text-muted">Based on your interests and preferences</p>
+            </div>
+            <!-- Container for dynamically loaded job listings -->
+            <div class="text-center mt-4">
+                <button onclick="fetchJobsFromReed()" class="btn btn-primary btn-xl text-uppercase">Find Jobs</button>
+            </div>
 
-        <!-- Placeholder for the loading indicator -->
-        <div class="text-center" id="loadingIndicator" style="display: none;">
-            <i class="fas fa-spinner fa-spin fa-3x"></i>
-        </div>
+            <!-- Loading Indicator and Messages Container -->
+            <div class="text-center" id="loadingIndicator" style="display: none;">
+                <i class="fas fa-spinner fa-spin fa-3x"></i>
+            </div>
 
-        <!-- Explicitly styled container for Job Listings -->
-        <div id="jobListingsDisplay" class="row justify-content-center mt-4">
-            <!-- Initially empty, will be filled with job listings by the displayJobListings() function -->
+            <!-- Message Container for displaying error messages -->
+            <div id="messageContainer" class="mt-3"></div>
+
+            <!-- Section for Displaying Job Listings -->
+            <div id="jobListingsDisplay" class="row justify-content-center">
+                <!-- Job listings will be inserted here by the displayJobListings() function -->
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -642,68 +648,69 @@
     </footer>
 
     <script>
-  
-
-         // Define the function to fetch jobs from Reed via your serverless function
-    function fetchJobsFromReed() {
-        // Retrieve user input
-        console.log("fetchJobsFromReed function is called");
-        
-        const jobQuery = document.getElementById('jobQuery').value;
-        const jobLocation = document.getElementById('jobLocation').value;
-
-        // Show loading indicator
-        showLoadingIndicator();
-
-        // Construct the URL for the serverless function endpoint
-        const url = `/api/fetchJobs?keywords=${encodeURIComponent(jobQuery)}&location=${encodeURIComponent(jobLocation)}`;
-
-        // Fetch job listings
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                hideLoadingIndicator(); // Hide loading indicator
-                if (data.results && data.results.length > 0) {
-                    displayJobListings(data.results);
-                } else {
-                    displayNoResultsMessage();
-                }
-            })
-            .catch(error => {
-                hideLoadingIndicator(); // Hide loading indicator
-                displayErrorMessage(error);
-            });
-    }
 
 
-    
+        // Define the function to fetch jobs from Reed via your serverless function
+        function fetchJobsFromReed() {
+            // Retrieve user input
+            console.log("fetchJobsFromReed function is called");
+
+            const jobQuery = document.getElementById('jobQuery').value;
+            const jobLocation = document.getElementById('jobLocation').value;
+
+            // Show loading indicator
+            showLoadingIndicator();
+
+            // Construct the URL for the serverless function endpoint
+            const url = `https://jobhunt123-idxae7z5f-bobvilla81s-projects.vercel.app/api/fetchJobs?keywords=${encodeURIComponent(jobQuery)}&location=${encodeURIComponent(jobLocation)}`;
+
+
+            // Fetch job listings
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    hideLoadingIndicator(); // Hide loading indicator
+                    if (data.results && data.results.length > 0) {
+                        displayJobListings(data.results);
+                    } else {
+                        displayNoResultsMessage();
+                    }
+                })
+                .catch(error => {
+                    hideLoadingIndicator(); // Hide loading indicator
+                    displayErrorMessage(error);
+                });
+        }
+
+
+
         // Show loading indicator
         function showLoadingIndicator() {
-    document.getElementById('loadingIndicator').style.display = 'block'; // Show the loading indicator
-}
-    
+            document.getElementById('loadingIndicator').style.display = 'block'; // Show the loading indicator
+        }
+
         // Hide loading indicator
         function hideLoadingIndicator() {
-    document.getElementById('loadingIndicator').style.display = 'none'; // Hide the loading indicator
-}
-    
+            document.getElementById('loadingIndicator').style.display = 'none'; // Hide the loading indicator
+        }
+
         // Display "No results found" message
         function displayNoResultsMessage() {
             const messageContainer = document.getElementById('messageContainer');
             messageContainer.innerHTML = 'No results found. Please try a different search.';
         }
-    
+
         // Display error message
         function displayErrorMessage(error) {
             const messageContainer = document.getElementById('messageContainer');
             messageContainer.innerHTML = `An error occurred: ${error.message}`;
         }
-    
+
         // Function to display job listings (simplified for demonstration)
         function displayJobListings(jobs) {
             const listingsContainer = document.getElementById('jobListingsDisplay');
@@ -715,8 +722,8 @@
             });
         }
     </script>
-    
-    
+
+
 
 
 
