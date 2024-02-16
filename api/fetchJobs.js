@@ -1,29 +1,48 @@
 const axios = require('axios');
 
-// Function to fetch jobs from Reed API
-// Now accepts keywords and location as parameters
 async function fetchJobsFromReed(keywords, location) {
   const options = {
     method: 'GET',
     url: 'https://www.reed.co.uk/api/1.0/search',
     params: {
-      keywords: keywords, // Use function parameter
-      location: location, // Use function parameter
-      // You can add or remove parameters as needed
+      keywords: keywords,
+      location: location,
     },
     headers: {
-      'Authorization': 'Basic ' + Buffer.from('5e8f0d41-22be-4a3f-9aee-034b9905b24b').toString('base64') // Make sure to use your actual API key here
-    }
+      'Authorization': 'Basic ' + Buffer.from('your_api_key_here').toString('base64'),
+    },
   };
 
   try {
     const response = await axios.request(options);
-    return response.data; // Return the fetched data
+
+    // Including CORS headers in the response
+    const headers = {
+      'Access-Control-Allow-Origin': '*', // Allows all origins
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    };
+
+    // Return response with CORS headers
+    return {
+      statusCode: 200,
+      headers: headers,
+      body: JSON.stringify(response.data),
+    };
   } catch (error) {
     console.error(error);
-    throw error; // Re-throw the error to handle it in the calling context
+    // Ensure CORS headers are included even in the error response
+    return {
+      statusCode: error.statusCode || 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+      body: JSON.stringify({ message: error.message }),
+    };
   }
 }
 
-module.exports = fetchJobsFromReed; // Export the function for use in other parts of your application
+module.exports = fetchJobsFromReed;
 
