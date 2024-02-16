@@ -11173,7 +11173,7 @@ header.masthead .masthead-heading {
   margin-bottom: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .timeline:before {
     left: 50%;
   }
@@ -11183,7 +11183,7 @@ header.masthead .masthead-heading {
   }
   .timeline > li .timeline-panel {
     float: left;
-    width: 41%;
+    width: 35%; /* Adjusted from 41% to 35% */
     padding: 0 20px 20px 30px;
     text-align: right;
   }
@@ -11204,6 +11204,7 @@ header.masthead .masthead-heading {
     text-align: left;
   }
 }
+
 @media (min-width: 992px) {
   .timeline > li {
     min-height: 150px;
